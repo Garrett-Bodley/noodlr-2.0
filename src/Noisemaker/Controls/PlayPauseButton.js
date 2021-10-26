@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { usePlayPause } from "../../utilities/ToneProvider";
 import "./playpausebutton.css";
 import PlayPauseIcon from "./Icons/PlayPauseIcon";
 import { animated, config, useSpring } from "react-spring";
@@ -14,8 +15,11 @@ const PlayPauseButton = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
+  const togglePlay = usePlayPause()
+
   const pressButton = (e) => {
     e.preventDefault();
+    togglePlay();
     setIsPressed(!isPressed);
   };
 
