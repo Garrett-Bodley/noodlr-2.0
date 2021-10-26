@@ -1,6 +1,7 @@
 import "./App.css";
 import Noisemaker from "./Noisemaker/Noisemaker";
 import styled from "styled-components";
+import background from "./background.png"
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const Container = styled.div`
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{background: `url(${background})`}} >
       <Container>
         <Noisemaker />
       </Container>
