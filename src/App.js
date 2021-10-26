@@ -17,7 +17,7 @@ const Container = styled.div`
 
 function App() {
   return (
-    <div className="App" style={{background: `url(${background})`}} >
+    <div className="App" >
       <Container>
         <Noisemaker />
       </Container>
