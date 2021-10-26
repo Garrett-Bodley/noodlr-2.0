@@ -84,7 +84,7 @@
 
 .playpause-icon svg {
   width: 2em;
-  opacity: 100%;
+  opacity: 1;
 }
 
 path {
