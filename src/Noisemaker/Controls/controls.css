@@ -13,6 +13,7 @@
   letter-spacing: 1vw;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1rem;
 }
 
 .controls-label{
@@ -28,7 +29,7 @@
 
 .icon {
   stroke: #faebd7;
-  stroke-width: 1.5px;
+  stroke-width: 2px;
   height: 2em;
   width: 2.5em;
   padding-right: 1em;
