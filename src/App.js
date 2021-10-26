@@ -1,7 +1,7 @@
 import "./App.css";
 import Noisemaker from "./Noisemaker/Noisemaker";
 import styled from "styled-components";
-import background from "./background.png"
+// import background from "./background.png"
 
 const Container = styled.div`
   display: flex;
