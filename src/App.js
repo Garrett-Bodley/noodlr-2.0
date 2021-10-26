@@ -11,6 +11,7 @@ const Container = styled.div`
   flex-grow: 1;
   width: auto;
   position: relative;
+  z-index: 2;
 `
 
 function App() {
