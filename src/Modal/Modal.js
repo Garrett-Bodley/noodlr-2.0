@@ -2,7 +2,7 @@ import Card from "./Card";
 import ModalBackground from "./ModalBackground";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { animated, useTransition } from "react-spring";
+import { animated, config, useTransition } from "react-spring";
 
 const Wrapper = styled(animated.div)`
   align-items: center;
@@ -28,24 +28,27 @@ const Modal = () => {
   };
 
   const cardTransitions = useTransition(isVisible, {
-    from: { scale: 0, opacity: 0 },
-    enter: { scale: 1, opacity: 1 },
-    leave: { scale: 0, opacity: 0 },
-    reverse: isVisible
+    from: { scale: 0 },
+    enter: { scale: 1 },
+    leave: { scale: 0 },
+    reverse: isVisible,
+    config: config.slow
   });
 
-  const bgTransitions = useTransition(isVisible, {
+  const transitions = useTransition(isVisible, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    reverse: isVisible
+    reverse: isVisible,
+    config: config.slow
   })
 
-  return (
-      <Wrapper>
-        {bgTransitions((styles, item) => item && <ModalBackground style={styles} />)}
-        {cardTransitions((styles, item) => item && <Card style={styles} closeModal={closeModal} />)}
-      </Wrapper>
+  return transitions((styles, item) => 
+    item &&       
+    <Wrapper style={styles}>
+      <ModalBackground/>
+      {cardTransitions((styles, item) => item && <Card style={styles} closeModal={closeModal} />)}
+    </Wrapper>
   )
 };
 

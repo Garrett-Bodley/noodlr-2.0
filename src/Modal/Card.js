@@ -19,9 +19,10 @@ const Container = styled(animated.div)`
   justify-content: center;
   line-height: 1.5;
   max-width: 50em;
-  width: 70%;
   padding: 2em;
   position: relative;
+  width: 70%;
+  will-change: opacity transform;
 `;
 
 const H1 = styled.h1`
