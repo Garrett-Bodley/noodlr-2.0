@@ -1,6 +1,7 @@
 import Card from "./Card";
 import ModalBackground from "./ModalBackground";
-import React, { useState } from "react";
+import React from "react";
+import { useModalVis, useModalVisUpdate } from "../utilities/ModalProvider"
 import styled from "styled-components";
 import { animated, config, useTransition } from "react-spring";
 
@@ -20,7 +21,14 @@ const Wrapper = styled(animated.div)`
   z-index: 3;
 `;
 
-const Modal = ({isVisible, hideModal}) => {
+const Modal = () => {
+
+  const isVisible = useModalVis();
+  const setIsVisible = useModalVisUpdate()
+
+  const hideModal = () => {
+    setIsVisible(false)
+  }
 
   const cardTransitions = useTransition(isVisible, {
     from: { scale: 0 },
@@ -41,7 +49,7 @@ const Modal = ({isVisible, hideModal}) => {
   return transitions((styles, item) => 
     item &&       
     <Wrapper style={styles}>
-      <ModalBackground/>
+      <ModalBackground onClick={hideModal} />
       {cardTransitions((styles, item) => item && <Card style={styles} hideModal={hideModal} />)}
     </Wrapper>
   )

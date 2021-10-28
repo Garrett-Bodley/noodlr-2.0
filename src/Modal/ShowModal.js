@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import QuestionMarkIcon from './QuestionMarkIcon'
+import { useModalVisUpdate  } from '../utilities/ModalProvider'
 
 const StyledIcon = styled(QuestionMarkIcon)`
   padding: 3px;
@@ -54,7 +55,13 @@ const Front = styled.div`
   }
 `
 
-const ShowModal = ({ showModal }) => {
+const ShowModal = () => {
+
+  const setIsVisible = useModalVisUpdate()
+
+  const showModal = () => {
+    setIsVisible(true)
+  }
 
   return (
     <PositionWrapper>
