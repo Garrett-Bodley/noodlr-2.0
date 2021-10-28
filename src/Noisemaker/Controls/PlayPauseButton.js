@@ -6,7 +6,7 @@ import { animated, config, useSpring } from "react-spring";
 
 const parseConfig = (isPressed, isActive, isHovered) => {
   if (isActive) return config.stiff;
-  if (isPressed || isHovered) return config.gentle;
+  if (isPressed || isHovered) return config.wobbly;
   return { friction: 50, tension: 250 };
 };
 
