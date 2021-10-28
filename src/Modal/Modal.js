@@ -1,7 +1,7 @@
 import Card from "./Card";
 import ModalBackground from "./ModalBackground";
 import React from "react";
-import { useModalVis, useModalVisUpdate } from "../utilities/ModalProvider"
+import { useModalVis, useModalVisUpdate } from "../utilities/ModalVisProvider";
 import styled from "styled-components";
 import { animated, config, useTransition } from "react-spring";
 
@@ -22,20 +22,19 @@ const Wrapper = styled(animated.div)`
 `;
 
 const Modal = () => {
-
   const isVisible = useModalVis();
-  const setIsVisible = useModalVisUpdate()
+  const setIsVisible = useModalVisUpdate();
 
   const hideModal = () => {
-    setIsVisible(false)
-  }
+    setIsVisible(false);
+  };
 
   const cardTransitions = useTransition(isVisible, {
     from: { scale: 0 },
     enter: { scale: 1 },
     leave: { scale: 0 },
     reverse: isVisible,
-    config: config.slow
+    config: config.slow,
   });
 
   const transitions = useTransition(isVisible, {
@@ -43,16 +42,21 @@ const Modal = () => {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     reverse: isVisible,
-    config: config.slow
-  })
+    config: config.slow,
+  });
 
-  return transitions((styles, item) => 
-    item &&       
-    <Wrapper style={styles}>
-      <ModalBackground onClick={hideModal} />
-      {cardTransitions((styles, item) => item && <Card style={styles} hideModal={hideModal} />)}
-    </Wrapper>
-  )
+  return transitions(
+    (styles, item) =>
+      item && (
+        <Wrapper style={styles}>
+          <ModalBackground onClick={hideModal} />
+          {cardTransitions(
+            (styles, item) =>
+              item && <Card style={styles} hideModal={hideModal} />
+          )}
+        </Wrapper>
+      )
+  );
 };
 
 export default Modal;
