@@ -63,7 +63,7 @@ const Card = ({ style, hideModal }) => {
         <Li>The bottom three rows are reserved for drums.</Li>
         <Li>Press the play button after making your selections.</Li>
         <Li>
-          Toggle notes, adjust tempo, volume, etc., while Noisemaker is playing
+          Toggle notes, adjust tempo, volume, etc. while Noisemaker is playing
           for real time feedback.
         </Li>
         <Li>Please enjoy yourself <span aria-label="smiley face" role="img">🙂</span></Li>
