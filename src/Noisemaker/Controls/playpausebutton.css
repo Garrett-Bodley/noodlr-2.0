@@ -87,7 +87,7 @@
   opacity: 1;
 }
 
-path {
+.playpause-icon path {
   stroke: hsl(0, 0%, 60%, 1);
   stroke-width: .25px;
   stroke-linejoin: round;
