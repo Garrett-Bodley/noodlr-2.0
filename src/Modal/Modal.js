@@ -20,12 +20,7 @@ const Wrapper = styled(animated.div)`
   z-index: 3;
 `;
 
-const Modal = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const closeModal = () => {
-    setIsVisible(false);
-  };
+const Modal = ({isVisible, hideModal}) => {
 
   const cardTransitions = useTransition(isVisible, {
     from: { scale: 0 },
@@ -47,7 +42,7 @@ const Modal = () => {
     item &&       
     <Wrapper style={styles}>
       <ModalBackground/>
-      {cardTransitions((styles, item) => item && <Card style={styles} closeModal={closeModal} />)}
+      {cardTransitions((styles, item) => item && <Card style={styles} hideModal={hideModal} />)}
     </Wrapper>
   )
 };

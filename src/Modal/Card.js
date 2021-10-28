@@ -49,10 +49,10 @@ const Ul = styled.ul`
   max-width: 60%;
 `;
 
-const Card = ({ style, closeModal }) => {
+const Card = ({ style, hideModal }) => {
   return (
     <Container style={style}>
-      <StyledCloseIcon onClick={closeModal} />
+      <StyledCloseIcon onClick={hideModal} />
       <H1>INSTRUCTIONS</H1>
       <hr style={{ border: "1px solid rgb(250, 235, 215)", width: "70%" }} />
       <Ul>
@@ -65,7 +65,7 @@ const Card = ({ style, closeModal }) => {
           Toggle notes, adjust tempo/volume, etc. while Noisemaker is playing
           for real time feedback.
         </Li>
-        <Li>Please enjoy yourself.</Li>
+        <Li>Please enjoy yourself <span aria-label="smiley face" role="img">🙂</span></Li>
       </Ul>
     </Container>
   );
