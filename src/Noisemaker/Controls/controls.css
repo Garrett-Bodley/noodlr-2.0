@@ -36,7 +36,8 @@
 }
 
 .icon-metronome{
-  transform: translateX(-.75em)
+  transform: translateX(-.75em);
+  stroke-width: .25px;
 }
 
 .controls-label svg {
