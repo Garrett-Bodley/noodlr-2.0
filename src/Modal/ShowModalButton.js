@@ -48,7 +48,7 @@ const Front = styled.div`
   transform: translateY(-5px);
   z-index: 5000;
 
-  &:active {
+  &:hover {
     filter: brightness(1.1);
   }
 `;
