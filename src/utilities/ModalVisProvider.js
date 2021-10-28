@@ -11,7 +11,7 @@ export const useModalVisUpdate = () => {
   return useContext(ModalVisUpdateContext)
 }
 
-const ModalProvider = ({ children }) => {
+const ModalVisProvider = ({ children }) => {
   const [isVisible, setIsVisible] = useState(true)
 
   return (
@@ -23,4 +23,4 @@ const ModalProvider = ({ children }) => {
   );
 };
 
-export default ModalProvider;
+export default ModalVisProvider;
