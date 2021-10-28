@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from "styled-components"
-import QuestionMarkIcon from './QuestionMarkIcon'
-import { useModalVisUpdate  } from '../utilities/ModalProvider'
+import React from "react";
+import styled from "styled-components";
+import QuestionMarkIcon from "./QuestionMarkIcon";
+import { useModalVisUpdate } from "../utilities/ModalVisProvider";
 
 const StyledIcon = styled(QuestionMarkIcon)`
   padding: 3px;
@@ -9,7 +9,7 @@ const StyledIcon = styled(QuestionMarkIcon)`
   height: inherit;
   width: inherit;
   color: var(--color-light);
-`
+`;
 
 const PositionWrapper = styled.div`
   position: absolute;
@@ -18,7 +18,7 @@ const PositionWrapper = styled.div`
   outline-offset: 5px;
   isolation: isolate;
   z-index: 3;
-`
+`;
 
 const Edge = styled.div`
   background-color: black;
@@ -27,16 +27,14 @@ const Edge = styled.div`
   margin: 2em;
   border-radius: 50%;
   position: absolute;
-  box-shadow:
-  0.3px 0.3px 0.3px rgba(0, 0, 0, 0.028),
-  0.7px 0.7px 0.7px rgba(0, 0, 0, 0.04),
-  1.3px 1.3px 1.3px rgba(0, 0, 0, 0.05),
-  2.2px 2.2px 2.2px rgba(0, 0, 0, 0.06),
-  4.2px 4.2px 4.2px rgba(0, 0, 0, 0.072),
-  10px 10px 10px rgba(0, 0, 0, 0.1)
-;
-
-`
+  box-shadow: 
+    0.3px 0.3px 0.3px rgba(0, 0, 0, 0.028),
+    0.7px 0.7px 0.7px rgba(0, 0, 0, 0.04),
+    1.3px 1.3px 1.3px rgba(0, 0, 0, 0.05),
+    2.2px 2.2px 2.2px rgba(0, 0, 0, 0.06),
+    4.2px 4.2px 4.2px rgba(0, 0, 0, 0.072),
+    10px 10px 10px rgba(0, 0, 0, 0.1);
+`;
 
 const Front = styled.div`
   cursor: pointer;
@@ -51,26 +49,25 @@ const Front = styled.div`
   z-index: 5000;
 
   &:active {
-    filter: brightness(1.1)
+    filter: brightness(1.1);
   }
-`
+`;
 
-const ShowModal = () => {
-
-  const setIsVisible = useModalVisUpdate()
+const ShowModalButton = () => {
+  const setIsVisible = useModalVisUpdate();
 
   const showModal = () => {
-    setIsVisible(true)
-  }
+    setIsVisible(true);
+  };
 
   return (
     <PositionWrapper>
-      <Edge/>
+      <Edge />
       <Front onClick={showModal}>
-        <StyledIcon/>
+        <StyledIcon />
       </Front>
     </PositionWrapper>
-  )
-}
+  );
+};
 
-export default ShowModal
+export default ShowModalButton;
