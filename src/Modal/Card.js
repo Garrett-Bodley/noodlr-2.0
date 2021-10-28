@@ -49,10 +49,10 @@ const Ul = styled.ul`
   max-width: 60%;
 `;
 
-const Card = (props) => {
+const Card = ({ style, closeModal }) => {
   return (
-    <Container {...props}>
-      <StyledCloseIcon onClick={props.closeModal} />
+    <Container style={style}>
+      <StyledCloseIcon onClick={closeModal} />
       <H1>INSTRUCTIONS</H1>
       <hr style={{ border: "1px solid rgb(250, 235, 215)", width: "70%" }} />
       <Ul>
