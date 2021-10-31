@@ -59,7 +59,7 @@ const StyledIcon = styled(QuestionMarkIcon)`
 const ShowModalButton = () => {
   const setIsVisible = useModalVisUpdate();
   const [isBooped, setIsBooped] = useState(false);
-  const rotation = 30
+  const rotation = 20
   const timing = 150;
 
   const trigger = () => {
