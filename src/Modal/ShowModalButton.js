@@ -59,12 +59,12 @@ const StyledIcon = styled(QuestionMarkIcon)`
 const ShowModalButton = () => {
   const setIsVisible = useModalVisUpdate();
   const [isBooped, setIsBooped] = useState(false);
-  const rotation = 20
+  const rotation = 20;
   const timing = 150;
 
   const trigger = () => {
-    setIsBooped(true)
-  }
+    setIsBooped(true);
+  };
 
   useEffect(() => {
     if (!isBooped) return;
@@ -77,12 +77,12 @@ const ShowModalButton = () => {
   }, [isBooped, timing]);
 
   const style = useSpring({
-    transform: isBooped 
+    transform: isBooped
       ? `translate(-1px, -1px)
-        rotate(${rotation}deg)` 
+         rotate(${rotation}deg)`
       : `translate(-1px, -1px)
-        rotate(0deg)`,
-    config: config.wobbly
+         rotate(0deg)`,
+    config: config.wobbly,
   });
 
   const showModal = () => {
