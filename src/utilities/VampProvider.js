@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import makeGrid from "./makeGrid";
 
 const VampContext = React.createContext();
@@ -12,8 +12,12 @@ export const useVampUpdate = () => {
   return useContext(VampUpdateContext);
 };
 
-const VampProvider = ({ children }) => {
-  const vamp = useRef(makeGrid());
+const VampProvider = ({ beatCount, children }) => {
+  const vamp = useRef(makeGrid(beatCount));
+
+  useEffect(() => {
+    vamp.current = makeGrid(beatCount)
+  }, [beatCount])
 
   const toggleNote = (clickedRow, clickedNote) => {
     let note = vamp.current[clickedRow][clickedNote]

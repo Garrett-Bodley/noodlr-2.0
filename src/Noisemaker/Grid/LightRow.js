@@ -17,7 +17,7 @@ const LightRow = ({beatCount}) => {
 
   const renderLights = (beatCount) => {
     return [...Array(beatCount)].map((_, index) => {
-      return <Light key={index} beatNum={index} isActive={currentBeat === (index + 1) % 16} />
+      return <Light key={index} beatNum={index} isActive={currentBeat === (index + 1) % beatCount} />
     })
   }
 

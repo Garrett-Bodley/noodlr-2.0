@@ -29,7 +29,7 @@ export const useBeat = () => {
   return useContext(BeatContext)
 }
 
-const ToneProvider = ({ children }) => {
+const ToneProvider = ({ beatCount, children }) => {
   const [isActivated, setIsActivated] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const beat = useRef(0);
@@ -59,10 +59,10 @@ const ToneProvider = ({ children }) => {
           synths[index].triggerAttackRelease(tone.pitch, "8n", time);
         }
       });
-      beat.current = (beat.current + 1) % 16;
+      beat.current = (beat.current + 1) % beatCount;
       setBeatMirror(beat.current)
     },
-    [synths, vamp]
+    [beatCount, synths, vamp]
   );
 
   const updateTempo = (tempo) => {

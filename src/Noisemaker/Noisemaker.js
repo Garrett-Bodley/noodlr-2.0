@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   border,
@@ -76,9 +76,17 @@ const StyledGrid = styled(Grid)`
 `;
 
 const Noisemaker = (props) => {
+
+  const [beatCount, setBeatCount] = useState(1)
+  const [rowCount, setRowCount] = useState(9)
+
+  const handleOnClick = () => {
+    setBeatCount(prevState => prevState + 1)
+  }
+
   return (
-    <VampProvider>
-      <ToneProvider>
+    <VampProvider beatCount={beatCount}>
+      <ToneProvider beatCount={beatCount}>
         <Container
           className="noisemaker"
           {...props}
@@ -92,11 +100,12 @@ const Noisemaker = (props) => {
           gridTemplateColumns="4fr 2fr"
           gridTemplateAreas={' "tones controls" '}
         >
+          <button onClick={handleOnClick}>Add Beat</button>
           <StyledGrid
             gridArea="tones"
             my="auto"
-            rowCount={9}
-            beatCount={16}
+            rowCount={rowCount}
+            beatCount={beatCount}
             p=".5em 1em 1em 1em"
             colors={{ primary: "#38CC77", secondary: "#DE4839" }}
           />
