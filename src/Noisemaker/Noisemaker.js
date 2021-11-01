@@ -108,3 +108,21 @@ const Noisemaker = (props) => {
 };
 
 export default Noisemaker;
+
+// Mobile Layout TODO
+  // smallest 653 x 280 || 568 x 320
+// 1. Make Settings card.
+//   a. Volume & Tempo Control
+// 2. Make Settings button.
+// 3. Create Mobile Noisemaker Component.
+// 4. Add JS library to query mobile vs desktop.
+// 5. Breakpoint.
+// 6. Attribution Card (access via settings?)
+
+// *STRETCH GOALS*
+// 1. Share vamp link
+// 2. Log in/out functionality
+// 3. Drag mouse to enable tones
+// 4. Adjust number of beats in settings
+// 5. Choose your own pitches/sounds?
+  
