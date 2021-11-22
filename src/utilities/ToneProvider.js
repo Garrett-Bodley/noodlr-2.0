@@ -53,7 +53,7 @@ const ToneProvider = ({ children }) => {
 
   const repeat = useCallback(
     (time) => {
-      vamp.current.forEach((row, index) => {
+      vamp.forEach((row, index) => {
         let tone = row[beat.current];
         if (tone.isActive) {
           synths[index].triggerAttackRelease(tone.pitch, "8n", time);
