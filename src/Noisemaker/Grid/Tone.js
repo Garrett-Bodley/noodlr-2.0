@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { border, color, layout, position, space } from "styled-system";
 import AspectRatioContainer from "../../utilities/AspectRatioContainer";
-import { useVampUpdate } from "../../utilities/VampProvider";
+import { useVampUpdate, useIsActive } from "../../utilities/VampProvider";
+import { useMouseDown } from "../../utilities/MouseDownProvider";
 
 const Button = styled.button`
   ${border};
@@ -24,7 +25,7 @@ const Button = styled.button`
       inset 0.13px 0.4px 0.9px rgba(20, 31, 25, 0.54),
       inset 0.5px 1px 4px rgba(20, 31, 25, 0.09);
 
-    opacity: ${(props) => (props.isPressed ? "100%" : "0%")};
+    opacity: ${(props) => (props.isActive ? "100%" : "0%")};
     will-change: opacity;
     transition: opacity 100ms ease;
   }
@@ -41,28 +42,34 @@ const Button = styled.button`
       0.1px 0.1px 0.3px rgba(0, 0, 0, 0.238),
       0.2px 0.4px 0.9px rgba(0, 0, 0, 0.352), 
       1px 2px 4px rgba(0, 0, 0, 0.59);
-    opacity: ${(props) => (props.isPressed ? "0%" : "100%")};
+    opacity: ${(props) => (props.isActive ? "0%" : "100%")};
     will-change: opacity;
     transition: opacity 100ms ease-in;
   }
 `;
 
 const Tone = (props) => {
-  const [isPressed, setIsPressed] = useState(false);
-  const toggleNote = useVampUpdate();
   const { rowNum, beatNum, color } = props;
+  const toggleNote = useVampUpdate();
+  const isActive = useIsActive(rowNum, beatNum)
+  const mouseDown = useMouseDown()
 
-  const handleOnClick = () => {
-    setIsPressed((prevState) => !prevState);
+  const handleMouseDown = () => {
     toggleNote(rowNum, beatNum);
   };
+
+  const handleOnEnter = e => {
+    // e.preventDefault()
+    if(mouseDown) toggleNote(rowNum, beatNum)
+  }
 
   return (
     <AspectRatioContainer {...props}>
       <Button
-        onClick={handleOnClick}
+        onMouseEnter={handleOnEnter}
+        onMouseDown={handleMouseDown}
         position="relative"
-        isPressed={isPressed}
+        isActive={isActive}
         width="100%"
         height="100%"
         border="1px solid black"
