@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { border, color, layout, position, space } from "styled-system";
 import AspectRatioContainer from "../../utilities/AspectRatioContainer";
