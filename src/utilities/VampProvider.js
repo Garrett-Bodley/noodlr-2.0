@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import { useLocalStorage } from './useLocalStorage'
 import makeGrid from "./makeGrid";
 
 const VampContext = React.createContext();
@@ -17,7 +18,7 @@ export const useVampUpdate = () => {
 };
 
 const VampProvider = ({ children }) => {
-  const [vamp, setVamp] = useState(makeGrid());
+  const [vamp, setVamp] = useLocalStorage('vamp', makeGrid());
 
   const toggleNote = (clickedRow, clickedNote) => {
     let newVamp = [...vamp]
