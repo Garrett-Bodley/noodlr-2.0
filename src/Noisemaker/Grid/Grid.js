@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { grid, layout, position } from "styled-system";
 import LightRow from "./LightRow"
 import Row from './Row'
+import MouseDownProvider from "../../utilities/MouseDownProvider";
 
 const Article = styled.article`
   ${grid};
@@ -21,18 +22,20 @@ const Grid = (props) => {
   };
 
   return (
-    <Article
-      {...props}
-      width="100%"
-      height="100%"
-      display="grid"
-      gridTemplateRows={`repeat(${rowCount + 1}, 1fr)`}
-      gridGap="2px"
-      zIndex="2"
-    >
-      <LightRow beatCount={beatCount} />
-      {renderRows(rowCount, beatCount)}
-    </Article>
+    <MouseDownProvider>
+      <Article
+        {...props}
+        width="100%"
+        height="100%"
+        display="grid"
+        gridTemplateRows={`repeat(${rowCount + 1}, 1fr)`}
+        gridGap="2px"
+        zIndex="2"
+      >
+        <LightRow beatCount={beatCount} />
+        {renderRows(rowCount, beatCount)}
+      </Article>
+    </MouseDownProvider>
   );
 };
 
