@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   border,
@@ -75,21 +75,12 @@ const StyledGrid = styled(Grid)`
   ${space}
 `;
 
-const Noisemaker = (props) => {
-
-  const [beatCount, setBeatCount] = useState(1)
-  const [rowCount, setRowCount] = useState(9)
-
-  const handleOnClick = () => {
-    setBeatCount(prevState => prevState + 1)
-  }
-
+const Noisemaker = ({beatCount, pitches}) => {
   return (
-    <VampProvider beatCount={beatCount}>
-      <ToneProvider beatCount={beatCount}>
+    <VampProvider beatCount={beatCount} pitches={pitches}>
+      <ToneProvider beatCount={beatCount} pitches={pitches}>
         <Container
           className="noisemaker"
-          {...props}
           bg="#3b3c36"
           boxShadow="inset 0px 0px 0px 1px var(--color-dark--dark);"
           justifyContent="center"
@@ -100,11 +91,10 @@ const Noisemaker = (props) => {
           gridTemplateColumns="4fr 2fr"
           gridTemplateAreas={' "tones controls" '}
         >
-          <button onClick={handleOnClick}>Add Beat</button>
           <StyledGrid
             gridArea="tones"
             my="auto"
-            rowCount={rowCount}
+            rowCount={pitches.length}
             beatCount={beatCount}
             p=".5em 1em 1em 1em"
             colors={{ primary: "#38CC77", secondary: "#DE4839" }}
@@ -131,7 +121,7 @@ export default Noisemaker;
 // *STRETCH GOALS*
 // 1. Share vamp link
 // 2. Log in/out functionality
-// 3. Drag mouse to enable tones
+// 3̶.̶ D̶r̶a̶g̶ m̶o̶u̶s̶e̶ t̶o̶ e̶n̶a̶b̶l̶e̶ t̶o̶n̶e̶s̶
 // 4. Adjust number of beats in settings
 // 5. Choose your own pitches/sounds?
   

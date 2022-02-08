@@ -12,8 +12,9 @@ export const useVampUpdate = () => {
   return useContext(VampUpdateContext);
 };
 
-const VampProvider = ({ beatCount, children }) => {
-  const vamp = useRef(makeGrid(beatCount));
+const VampProvider = ({ beatCount, children, pitches }) => {
+
+  const vamp = useRef(makeGrid(beatCount, pitches));
 
   useEffect(() => {
     vamp.current = makeGrid(beatCount)

@@ -1,5 +1,7 @@
-const makeGrid = (beatCount) => {
-  const pitches = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C3", "C2", "C1"];
+const makeGrid = (
+  beatCount,
+  pitches = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "E1", "D1", "C1"]
+) => {
   const vamp = [];
 
   for (const pitch of pitches) {
