@@ -38,7 +38,7 @@ const ToneProvider = ({ beatCount, children, rowCount }) => {
   const [volume, setVolume] = useState(parseFloat(-20));
   const vamp = useVamp();
 
-  const synths = useSynths(vamp.current.length)
+  const synths = useSynths(vamp.length)
 
   const togglePlay = () => {
     if (!isActivated) {
@@ -57,7 +57,6 @@ const ToneProvider = ({ beatCount, children, rowCount }) => {
       vamp.forEach((row, index) => {
         let tone = row[beat.current];
         if (tone.isActive) {
-          debugger
           synths[index].triggerAttackRelease(tone.pitch, "8n", time);
         }
       });

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLocalStorage } from './useLocalStorage'
 import makeGrid from "./makeGrid";
 
@@ -17,8 +17,13 @@ export const useVampUpdate = () => {
   return useContext(VampUpdateContext);
 };
 
-const VampProvider = ({ children }) => {
-  const [vamp, setVamp] = useLocalStorage('vamp', makeGrid());
+const VampProvider = ({ beatCount, pitches, children }) => {
+  const [vamp, setVamp] = useLocalStorage('vamp', makeGrid(beatCount, pitches));
+
+  useEffect(() => {
+    setVamp(makeGrid(beatCount, pitches))
+    // eslint-disable-next-line
+  }, [beatCount, pitches])
 
   const toggleNote = (clickedRow, clickedNote) => {
     let newVamp = [...vamp]
