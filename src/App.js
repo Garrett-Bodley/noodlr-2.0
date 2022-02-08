@@ -18,6 +18,8 @@ const Container = styled.div`
   z-index: 2;
 `;
 
+const pitches = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "E1", "D1", "C1"]
+
 function App() {
   return (
     <div className="App">
@@ -26,7 +28,7 @@ function App() {
         <Modal />
       </ModalVisProvider>
       <Container>
-        <Noisemaker />
+        <Noisemaker beatCount={8} pitches={pitches} />
       </Container>
     </div>
   );
