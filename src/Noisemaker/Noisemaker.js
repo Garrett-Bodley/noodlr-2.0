@@ -75,13 +75,12 @@ const StyledGrid = styled(Grid)`
   ${space}
 `;
 
-const Noisemaker = (props) => {
+const Noisemaker = ({beatCount, pitches}) => {
   return (
-    <VampProvider>
-      <ToneProvider>
+    <VampProvider beatCount={beatCount} pitches={pitches}>
+      <ToneProvider beatCount={beatCount} pitches={pitches}>
         <Container
           className="noisemaker"
-          {...props}
           bg="#3b3c36"
           boxShadow="inset 0px 0px 0px 1px var(--color-dark--dark);"
           justifyContent="center"
@@ -95,8 +94,8 @@ const Noisemaker = (props) => {
           <StyledGrid
             gridArea="tones"
             my="auto"
-            rowCount={9}
-            beatCount={16}
+            rowCount={pitches.length}
+            beatCount={beatCount}
             p=".5em 1em 1em 1em"
             colors={{ primary: "#38CC77", secondary: "#DE4839" }}
           />
@@ -108,3 +107,21 @@ const Noisemaker = (props) => {
 };
 
 export default Noisemaker;
+
+// Mobile Layout TODO
+  // smallest 653 x 280 || 568 x 320
+// 1. Make Settings card.
+//   a. Volume & Tempo Control
+// 2. Make Settings button.
+// 3. Create Mobile Noisemaker Component.
+// 4. Add JS library to query mobile vs desktop.
+// 5. Breakpoint.
+// 6. Attribution Card (access via settings?)
+
+// *STRETCH GOALS*
+// 1. Share vamp link
+// 2. Log in/out functionality
+// 3̶.̶ D̶r̶a̶g̶ m̶o̶u̶s̶e̶ t̶o̶ e̶n̶a̶b̶l̶e̶ t̶o̶n̶e̶s̶
+// 4. Adjust number of beats in settings
+// 5. Choose your own pitches/sounds?
+  

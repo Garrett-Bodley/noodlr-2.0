@@ -29,15 +29,16 @@ export const useBeat = () => {
   return useContext(BeatContext)
 }
 
-const ToneProvider = ({ children }) => {
-  const [isActivated, setIsActivated] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+const ToneProvider = ({ beatCount, children, rowCount }) => {
   const beat = useRef(0);
   const [beatMirror, setBeatMirror] = useState(0)
-  const synths = useSynths()
+  const [isActivated, setIsActivated] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [tempo, setTempo] = useState(120);
   const [volume, setVolume] = useState(parseFloat(-20));
   const vamp = useVamp();
+
+  const synths = useSynths(vamp.current.length)
 
   const togglePlay = () => {
     if (!isActivated) {
@@ -56,13 +57,14 @@ const ToneProvider = ({ children }) => {
       vamp.forEach((row, index) => {
         let tone = row[beat.current];
         if (tone.isActive) {
+          debugger
           synths[index].triggerAttackRelease(tone.pitch, "8n", time);
         }
       });
-      beat.current = (beat.current + 1) % 16;
+      beat.current = (beat.current + 1) % beatCount;
       setBeatMirror(beat.current)
     },
-    [synths, vamp]
+    [beatCount, synths, vamp]
   );
 
   const updateTempo = (tempo) => {
