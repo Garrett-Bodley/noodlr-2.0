@@ -121,7 +121,6 @@ const PlayPauseButton = () => {
       onMouseUp={handleMouseUp}
       onMouseOut={handleMouseUp}
       className="button-wrapper"
-      role="button"
       onClick={pressButton}
     >
       <animated.span
