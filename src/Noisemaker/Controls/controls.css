@@ -29,15 +29,17 @@
 
 .icon {
   stroke: #faebd7;
-  stroke-width: 2px;
-  height: 2em;
-  width: 2.5em;
-  padding-right: 1em;
+  stroke-width: 1px;
+  height: 2.5em;
+  width: 2em;
+  margin-right: .5em;
 }
 
 .icon-metronome{
-  transform: translateX(-.75em);
-  stroke-width: .25px;
+  height: 2em;
+  width: 1.3em;
+  transform: translate(-.5em, .2em);
+  stroke-width: 1.5px;
 }
 
 .controls-label svg {

@@ -6,6 +6,7 @@
 }
 
 .button-wrapper {
+  font-size: 16px;
   max-width: 90%;
   width: 90%;
   display: inline-block;

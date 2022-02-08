@@ -54,7 +54,7 @@ const ToneProvider = ({ beatCount, children, rowCount }) => {
 
   const repeat = useCallback(
     (time) => {
-      vamp.current.forEach((row, index) => {
+      vamp.forEach((row, index) => {
         let tone = row[beat.current];
         if (tone.isActive) {
           debugger

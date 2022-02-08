@@ -114,7 +114,7 @@ const PlayPauseButton = () => {
   });
 
   return (
-    <label
+    <button
       onMouseEnter={startHover}
       onMouseLeave={stopHover}
       onMouseDown={handleMouseDown}
@@ -142,7 +142,7 @@ const PlayPauseButton = () => {
           style={svgProps}
         />
       </animated.div>
-    </label>
+    </button>
   );
 };
 
