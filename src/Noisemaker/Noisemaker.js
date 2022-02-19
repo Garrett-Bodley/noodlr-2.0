@@ -13,9 +13,7 @@ import {
 
 import Controls from "./Controls/Controls";
 import Grid from "./Grid/Grid";
-import ToneProvider from "../utilities/ToneProvider";
 import VampProvider from "../utilities/VampProvider";
-
 
 const Container = styled.section`
   ${border}
@@ -75,33 +73,31 @@ const StyledGrid = styled(Grid)`
   ${space}
 `;
 
-const Noisemaker = ({beatCount, pitches}) => {
+const Noisemaker = ({ beatCount, pitches }) => {
   return (
     <VampProvider beatCount={beatCount} pitches={pitches}>
-      <ToneProvider beatCount={beatCount} pitches={pitches}>
-        <Container
-          className="noisemaker"
-          bg="#3b3c36"
-          boxShadow="inset 0px 0px 0px 1px var(--color-dark--dark);"
-          justifyContent="center"
-          mx="1em"
-          position="relative"
-          borderRadius="12px"
-          display="grid"
-          gridTemplateColumns="4fr 2fr"
-          gridTemplateAreas={' "tones controls" '}
-        >
-          <StyledGrid
-            gridArea="tones"
-            my="auto"
-            rowCount={pitches.length}
-            beatCount={beatCount}
-            p=".5em 1em 1em 1em"
-            colors={{ primary: "#38CC77", secondary: "#DE4839" }}
-          />
-          <Controls gridArea="controls" />
-        </Container>
-      </ToneProvider>
+      <Container
+        className="noisemaker"
+        bg="#3b3c36"
+        boxShadow="inset 0px 0px 0px 1px var(--color-dark--dark);"
+        justifyContent="center"
+        mx="1em"
+        position="relative"
+        borderRadius="12px"
+        display="grid"
+        gridTemplateColumns="4fr 2fr"
+        gridTemplateAreas={' "tones controls" '}
+      >
+        <StyledGrid
+          gridArea="tones"
+          my="auto"
+          rowCount={pitches.length}
+          beatCount={beatCount}
+          p=".5em 1em 1em 1em"
+          colors={{ primary: "#38CC77", secondary: "#DE4839" }}
+        />
+        <Controls gridArea="controls" />
+      </Container>
     </VampProvider>
   );
 };
@@ -109,7 +105,7 @@ const Noisemaker = ({beatCount, pitches}) => {
 export default Noisemaker;
 
 // Mobile Layout TODO
-  // smallest 653 x 280 || 568 x 320
+// smallest 653 x 280 || 568 x 320
 // 1. Make Settings card.
 //   a. Volume & Tempo Control
 // 2. Make Settings button.
@@ -124,4 +120,3 @@ export default Noisemaker;
 // 3̶.̶ D̶r̶a̶g̶ m̶o̶u̶s̶e̶ t̶o̶ e̶n̶a̶b̶l̶e̶ t̶o̶n̶e̶s̶
 // 4. Adjust number of beats in settings
 // 5. Choose your own pitches/sounds?
-  

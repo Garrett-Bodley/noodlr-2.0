@@ -1,13 +1,13 @@
 import React, { useContext, useCallback, useRef, useState } from "react";
 import * as Tone from "tone";
-import useSynths from "./useSynths"
+import useSynths from "./useSynths";
 import { useVamp } from "./VampProvider";
 
 const ToneContext = React.createContext();
 const PlayPauseContext = React.createContext();
-const VolumeContext = React.createContext()
-const TempoContext = React.createContext()
-const BeatContext = React.createContext()
+const VolumeContext = React.createContext();
+const TempoContext = React.createContext();
+const BeatContext = React.createContext();
 
 export const useTone = () => {
   return useContext(ToneContext);
@@ -18,27 +18,28 @@ export const usePlayPause = () => {
 };
 
 export const useTempo = () => {
-  return useContext(TempoContext)
-}
+  return useContext(TempoContext);
+};
 
 export const useVolume = () => {
-  return useContext(VolumeContext)
-}
+  return useContext(VolumeContext);
+};
 
 export const useBeat = () => {
-  return useContext(BeatContext)
-}
+  return useContext(BeatContext);
+};
 
-const ToneProvider = ({ beatCount, children, rowCount }) => {
+const ToneProvider = ({ children }) => {
   const beat = useRef(0);
-  const [beatMirror, setBeatMirror] = useState(0)
+  const [beatMirror, setBeatMirror] = useState(0);
   const [isActivated, setIsActivated] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [tempo, setTempo] = useState(120);
   const [volume, setVolume] = useState(parseFloat(-20));
   const vamp = useVamp();
+  const beatCount = vamp[0].length;
 
-  const synths = useSynths(vamp.length)
+  const synths = useSynths(vamp.length);
 
   const togglePlay = () => {
     if (!isActivated) {
@@ -48,8 +49,8 @@ const ToneProvider = ({ beatCount, children, rowCount }) => {
       Tone.getDestination().volume.rampTo(volume, 0.001);
       setIsActivated(true);
     }
-    isPlaying ? Tone.Transport.stop() : Tone.Transport.start()
-    setIsPlaying(prevState => !prevState);
+    isPlaying ? Tone.Transport.stop() : Tone.Transport.start();
+    setIsPlaying((prevState) => !prevState);
   };
 
   const repeat = useCallback(
@@ -61,30 +62,30 @@ const ToneProvider = ({ beatCount, children, rowCount }) => {
         }
       });
       beat.current = (beat.current + 1) % beatCount;
-      setBeatMirror(beat.current)
+      setBeatMirror(beat.current);
     },
     [beatCount, synths, vamp]
   );
 
   const updateTempo = (tempo) => {
-    setTempo(tempo)
-    Tone.Transport.bpm.rampTo(tempo, 0.1)
-  }
+    setTempo(tempo);
+    Tone.Transport.bpm.rampTo(tempo, 0.1);
+  };
 
   const updateVolume = (volume) => {
-    setVolume(volume)
-    Tone.getDestination().volume.rampTo(volume, 0.001)
-  }
+    setVolume(volume);
+    Tone.getDestination().volume.rampTo(volume, 0.001);
+  };
 
   return (
     <ToneContext.Provider value={Tone}>
       <PlayPauseContext.Provider value={togglePlay}>
         <TempoContext.Provider value={[tempo, updateTempo]}>
-            <VolumeContext.Provider value={[volume, updateVolume]}>
-                <BeatContext.Provider value={beatMirror}>
-                  {children}
-                </BeatContext.Provider>
-            </VolumeContext.Provider>
+          <VolumeContext.Provider value={[volume, updateVolume]}>
+            <BeatContext.Provider value={beatMirror}>
+              {children}
+            </BeatContext.Provider>
+          </VolumeContext.Provider>
         </TempoContext.Provider>
       </PlayPauseContext.Provider>
     </ToneContext.Provider>
