@@ -6,7 +6,7 @@
   </a>
 </p>
 
-![A screenshot image of Noodlr](https://imgur.com/pqiyioy)
+![A screenshot image of Noodlr](https://i.imgur.com/pqiyioy.png)
 
 Noodlr is a browser based step sequencer. It is built with [React](https://reactjs.org/), and utilizes [Tone.js](https://tonejs.github.io/) to generate web audio. Noodlr is designed with beginners in mind, providing an environment ripe for creative exploration regardless of experience level.
 
