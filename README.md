@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Noodlr 2.0 👋</h1>
+<h1 align="center">Noodlr 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-2.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/Garrett-Bodley/noodlr-2.0/blob/main/LICENSE" target="_blank">
@@ -6,7 +6,28 @@
   </a>
 </p>
 
-> An online step sequencer that allows users to create their own custom musical vamps. Noodlr leverages the power of the Tone.js framework, combining it with modern CSS and React practices to create a fun and engaging user experience.
+![A screenshot image of Noodlr](https://imgur.com/pqiyioy)
+
+Noodlr is a browser based step sequencer. It is built with [React](https://reactjs.org/), and utilizes [Tone.js](https://tonejs.github.io/) to generate web audio. Noodlr is designed with beginners in mind, providing an environment ripe for creative exploration regardless of experience level.
+
+## Table of Contents
+  * Highlights
+    * Tone.js
+    * React
+      * Functional Components
+      * React Hooks
+        * utilizes built in hooks API in place of lifecycle methods
+      * Custom Hooks
+      * Custom Context Providers
+    * UX/UI/Frontend Stuff
+      * CSS Grid API
+      * Complex Box Shadows
+      * CSS Pseudo elements & pseudo selectors
+      * CSS transitions
+      * React Spring
+      * 3D button
+      * Boop animation
+      * Integrates google fonts
 
 ### ✨ [Demo](https://noodlr.netlify.app/)
 
@@ -20,12 +41,6 @@ npm install
 
 ```sh
 npm start
-```
-
-## Run tests
-
-```sh
-npm run test
 ```
 
 ## Author
