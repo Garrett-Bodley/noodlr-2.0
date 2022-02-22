@@ -10,7 +10,7 @@
 
 Noodlr is a browser based step sequencer. Built with [React](https://reactjs.org/), it utilizes [Tone.js](https://tonejs.github.io/) to generate all of the web audio. Noodlr is designed with beginners in mind, providing an environment ripe for creative exploration regardless of experience level.
 
-## Table of Contents
+# Table of Contents
   1. [Demo](#%E2%9C%A8-demohttpsnoodlrnetlifyapp)
   2. [Install](#install)
   3. [Usage](#Usage)
@@ -30,7 +30,7 @@ Noodlr is a browser based step sequencer. Built with [React](https://reactjs.org
       * [Boop](#boop)
       * [Google Fonts](#google-fonts)
 
-### ✨ [Demo](https://noodlr.netlify.app/)
+## ✨ [Demo](https://noodlr.netlify.app/)
 
 ## Install
 
@@ -44,35 +44,33 @@ npm install
 npm start
 ```
 
-## Highlights
+# Highlights
 
 
-### Tone.js
+## Tone.js
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit neque nec risus fermentum aliquet. Morbi ac lobortis nibh. Vivamus blandit diam lacus, quis eleifend enim rhoncus ultrices. Ut viverra tristique justo at laoreet. Vivamus ullamcorper elit ac leo posuere, sed gravida lectus ornare. Praesent sodales vulputate congue. Phasellus faucibus fringilla libero ac rutrum. Donec venenatis finibus neque, sed convallis velit tempor a. Morbi laoreet egestas mauris, et ultrices ex tempus non. Nam vel pharetra lorem, et faucibus ligula. Proin vitae metus elit. Nulla facilisi. Duis diam enim, rutrum at nibh eu, scelerisque feugiat mauris. Suspendisse gravida in diam ut pharetra.
+
+## React
 ----
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit neque nec risus fermentum aliquet. Morbi ac lobortis nibh. Vivamus blandit diam lacus, quis eleifend enim rhoncus ultrices. Ut viverra tristique justo at laoreet. Vivamus ullamcorper elit ac leo posuere, sed gravida lectus ornare. Praesent sodales vulputate congue. Phasellus faucibus fringilla libero ac rutrum. Donec venenatis finibus neque, sed convallis velit tempor a. Morbi laoreet egestas mauris, et ultrices ex tempus non. Nam vel pharetra lorem, et faucibus ligula. Proin vitae metus elit. Nulla facilisi. Duis diam enim, rutrum at nibh eu, scelerisque feugiat mauris. Suspendisse gravida in diam ut pharetra.
 
-### React
-----
+### Functional Components
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit neque nec risus fermentum aliquet. Morbi ac lobortis nibh. Vivamus blandit diam lacus, quis eleifend enim rhoncus ultrices. Ut viverra tristique justo at laoreet. Vivamus ullamcorper elit ac leo posuere, sed gravida lectus ornare. Praesent sodales vulputate congue. Phasellus faucibus fringilla libero ac rutrum. Donec venenatis finibus neque, sed convallis velit tempor a. Morbi laoreet egestas mauris, et ultrices ex tempus non. Nam vel pharetra lorem, et faucibus ligula. Proin vitae metus elit. Nulla facilisi. Duis diam enim, rutrum at nibh eu, scelerisque feugiat mauris. Suspendisse gravida in diam ut pharetra.
 
-#### Functional Components
+### Hooks
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit neque nec risus fermentum aliquet. Morbi ac lobortis nibh. Vivamus blandit diam lacus, quis eleifend enim rhoncus ultrices. Ut viverra tristique justo at laoreet. Vivamus ullamcorper elit ac leo posuere, sed gravida lectus ornare. Praesent sodales vulputate congue. Phasellus faucibus fringilla libero ac rutrum. Donec venenatis finibus neque, sed convallis velit tempor a. Morbi laoreet egestas mauris, et ultrices ex tempus non. Nam vel pharetra lorem, et faucibus ligula. Proin vitae metus elit. Nulla facilisi. Duis diam enim, rutrum at nibh eu, scelerisque feugiat mauris. Suspendisse gravida in diam ut pharetra.
 
-#### Hooks
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit neque nec risus fermentum aliquet. Morbi ac lobortis nibh. Vivamus blandit diam lacus, quis eleifend enim rhoncus ultrices. Ut viverra tristique justo at laoreet. Vivamus ullamcorper elit ac leo posuere, sed gravida lectus ornare. Praesent sodales vulputate congue. Phasellus faucibus fringilla libero ac rutrum. Donec venenatis finibus neque, sed convallis velit tempor a. Morbi laoreet egestas mauris, et ultrices ex tempus non. Nam vel pharetra lorem, et faucibus ligula. Proin vitae metus elit. Nulla facilisi. Duis diam enim, rutrum at nibh eu, scelerisque feugiat mauris. Suspendisse gravida in diam ut pharetra.
-
-#### Custom Context Providers
+### Custom Context Providers
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit neque nec risus fermentum aliquet. Morbi ac lobortis nibh. Vivamus blandit diam lacus, quis eleifend enim rhoncus ultrices. Ut viverra tristique justo at laoreet. Vivamus ullamcorper elit ac leo posuere, sed gravida lectus ornare. Praesent sodales vulputate congue. Phasellus faucibus fringilla libero ac rutrum. Donec venenatis finibus neque, sed convallis velit tempor a. Morbi laoreet egestas mauris, et ultrices ex tempus non. Nam vel pharetra lorem, et faucibus ligula. Proin vitae metus elit. Nulla facilisi. Duis diam enim, rutrum at nibh eu, scelerisque feugiat mauris. Suspendisse gravida in diam ut pharetra.
 
 -------
 
-### UI Technologies
-----
+## UI Technologies
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit neque nec risus fermentum aliquet. Morbi ac lobortis nibh. Vivamus blandit diam lacus, quis eleifend enim rhoncus ultrices. Ut viverra tristique justo at laoreet. Vivamus ullamcorper elit ac leo posuere, sed gravida lectus ornare. Praesent sodales vulputate congue. Phasellus faucibus fringilla libero ac rutrum. Donec venenatis finibus neque, sed convallis velit tempor a. Morbi laoreet egestas mauris, et ultrices ex tempus non. Nam vel pharetra lorem, et faucibus ligula. Proin vitae metus elit. Nulla facilisi. Duis diam enim, rutrum at nibh eu, scelerisque feugiat mauris. Suspendisse gravida in diam ut pharetra.
 
