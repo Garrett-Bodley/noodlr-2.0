@@ -43,8 +43,6 @@ const PositionWrapper = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  outline-offset: 5px;
-  isolation: isolate;
   z-index: 3;
 `;
 
