@@ -10,7 +10,7 @@ import {
   typography,
   layout,
 } from "styled-system";
-import { useTempo, useVolume } from "../../utilities/ToneProvider";
+import { useTone } from "../../utilities/ToneProvider/ToneProvider";
 import PlayPauseButton from "./PlayPauseButton";
 import VolumeIcon from "./Icons/VolumeIcon";
 import MetronomeIcon from "./Icons/MetronomeIcon";
@@ -39,8 +39,7 @@ const Container = styled.div`
 `;
 
 const Controls = (props) => {
-  const [tempo, setTempo] = useTempo();
-  const [volume, setVolume] = useVolume();
+  const { tempo, setTempo, volume, setVolume } = useTone();
 
   const handleTempoChange = (e) => {
     setTempo(parseFloat(e.target.value));
@@ -71,7 +70,7 @@ const Controls = (props) => {
         py="1rem"
         textAlign="center"
       >
-        <h2>NOISEMAKER</h2>
+        <h2>NOODLR</h2>
       </Container>
       <Container marginY="auto" width="100%">
         <Container width="90%">

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import makeGrid from "./makeGrid";
-import ToneProvider from "./ToneProvider";
+import ToneProvider from "./ToneProvider/ToneProvider";
 
 const VampContext = React.createContext();
 const VampUpdateContext = React.createContext();

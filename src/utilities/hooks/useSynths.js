@@ -30,7 +30,7 @@ const useSynths = (
 
   useEffect(() => {
     setSynths(makeSynths(rowCount));
-    return () => synths.forEach((synth) => synth.dispose());
+    return () => synths?.forEach((synth) => synth.dispose());
     // eslint-disable-next-line
   }, []);
 

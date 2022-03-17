@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from "styled-components"
-import {flexbox, layout, space, grid} from "styled-system"
-import Light from "./Light"
-import { useBeat } from '../../utilities/ToneProvider'
+import React from "react";
+import styled from "styled-components";
+import { flexbox, layout, space, grid } from "styled-system";
+import Light from "./Light";
+import { useTone } from '../../utilities/ToneProvider/ToneProvider'
 
 const StyledRow = styled.div`
   ${flexbox}
@@ -11,15 +11,20 @@ const StyledRow = styled.div`
   ${grid}
 `;
 
-const LightRow = ({beatCount}) => {
-
-  const currentBeat = useBeat()
+const LightRow = ({ beatCount }) => {
+  const { beatMirror } = useTone();
 
   const renderLights = (beatCount) => {
     return [...Array(beatCount)].map((_, index) => {
-      return <Light key={index} beatNum={index} isActive={currentBeat === (index + 1) % beatCount} />
-    })
-  }
+      return (
+        <Light
+          key={index}
+          beatNum={index}
+          isActive={beatMirror === (index + 1) % beatCount}
+        />
+      );
+    });
+  };
 
   return (
     <StyledRow
@@ -33,7 +38,7 @@ const LightRow = ({beatCount}) => {
     >
       {renderLights(beatCount)}
     </StyledRow>
-  )
-}
+  );
+};
 
-export default LightRow
+export default LightRow;
