@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { config, useSpring } from "react-spring";
+import React from "react";
+import { config } from "react-spring";
 import styled from "styled-components";
+import useBoop from "../utilities/hooks/useBoop";
 import { useModalVisUpdate } from "../utilities/ModalVisProvider";
 import QuestionMarkIcon from "./QuestionMarkIcon";
 
@@ -30,7 +31,7 @@ const Front = styled.div`
   border-radius: 50%;
   position: relative;
   transform: translateY(-5px);
-  z-index: 5000;
+  z-index: 9001; /* It's over 9000!! */
   will-change: filter;
   transition-delay: 20ms;
 
@@ -48,40 +49,21 @@ const PositionWrapper = styled.div`
 
 const StyledIcon = styled(QuestionMarkIcon)`
   padding: 3px;
-  transform: translate(-1px, -1px);
-  height: inherit;
-  width: inherit;
+  margin-top: -1px;
+  margin-left: -1px;
   color: var(--color-light);
 `;
 
 const ShowModalButton = () => {
   const setIsVisible = useModalVisUpdate();
-  const [isBooped, setIsBooped] = useState(false);
-  const rotation = 20;
-  const timing = 150;
+  const boopConfig = {
+    rotation: 20,
+    timing: 150,
+    springConfig: config.wobbly
+  }
 
-  const trigger = () => {
-    setIsBooped(true);
-  };
-
-  useEffect(() => {
-    if (!isBooped) return;
-
-    const timeoutId = window.setTimeout(() => {
-      setIsBooped(false);
-    }, timing);
-
-    return () => window.clearTimeout(timeoutId);
-  }, [isBooped, timing]);
-
-  const style = useSpring({
-    transform: isBooped
-      ? `translate(-1px, -1px)
-         rotate(${rotation}deg)`
-      : `translate(-1px, -1px)
-         rotate(0deg)`,
-    config: config.wobbly,
-  });
+  const [style, trigger] = useBoop(boopConfig)
+  console.log({trigger})
 
   const showModal = () => {
     setIsVisible(true);
