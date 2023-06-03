@@ -35,6 +35,7 @@ function useBoop({
     return () => {
       window.clearTimeout(timeoutId);
     };
+    // eslint-disable-next-line
   }, [isBooped]);
   const trigger = useCallback(() => {
     setIsBooped(true);
