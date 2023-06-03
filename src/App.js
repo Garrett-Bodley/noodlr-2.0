@@ -18,7 +18,9 @@ const Container = styled.div`
   z-index: 2;
 `;
 
-const pitches = ["F4", "D4", "C4", "A3", "G3", "F3", "C1", "D1", "E1"]
+const majorPenta = ["F4", "D4", "C4", "A3", "G3", "F3", "C1", "D1", "E1"]
+const minorPenta = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C1", "D1", "E1"]
+const majorScale = ["D4", "C4", "Bb3", "A3", "G3", "F3", "C1", "D1", "E1"]
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
         <Modal />
       </ModalVisProvider>
       <Container>
-        <Noisemaker beatCount={16} pitches={pitches} />
+        <Noisemaker beatCount={16} pitches={minorPenta} />
       </Container>
     </div>
   );
