@@ -31,7 +31,6 @@ const Front = styled.div`
   border-radius: 50%;
   position: relative;
   transform: translateY(-5px);
-  z-index: 9001; /* It's over 9000!! */
   will-change: filter;
   transition-delay: 20ms;
 
