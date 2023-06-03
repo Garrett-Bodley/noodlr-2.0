@@ -39,14 +39,14 @@ const Container = styled.div`
 `;
 
 const Controls = (props) => {
-  const { tempo, setTempo, volume, setVolume } = useTone();
+  const { tempo, updateTempo, volume, updateVolume } = useTone();
 
   const handleTempoChange = (e) => {
-    setTempo(parseFloat(e.target.value));
+    updateTempo(parseFloat(e.target.value));
   };
 
   const handleVolumeChange = (e) => {
-    setVolume(e.target.value === "0" ? -Infinity : e.target.value - 45);
+    updateVolume(e.target.value === "0" ? -Infinity : e.target.value - 45);
   };
 
   return (
